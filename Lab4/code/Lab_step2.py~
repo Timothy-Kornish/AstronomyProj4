@@ -1,0 +1,59 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from astropy.io import fits
+import math
+import montage_wrapper as montage
+import pickle
+import scipy.optimize as opt
+import aplpy
+from photutils import daofind
+from photutils import aperture_photometry, CircularAperture
+from photutils import CircularAnnulus
+from astropy.table import hstack
+
+
+dir = ('/Volumes/TIM/Lab4')
+npixelsx = 1024
+npixelsy= 1024
+
+cluster_r= np.zeros((1024,1024,25))
+for i in range(0,25):
+    cluster_r[:,:,i] = fits.getdata(dir+'/Data_r/Cluster_r_0'+str(i)+'.fits')
+
+cluster_v= np.zeros((1024,1024,25))
+for i in range(0,25):
+    cluster_v[:,:,i] = fits.getdata(dir+'/Data_v/Cluster_v_0'+str(i)+'.fits')
+
+cluster_b= np.zeros((1024,1024,25))
+for i in range(0,25):
+    cluster_b[:,:,i] = fits.getdata(dir+'/Data_b/Cluster_b_0'+str(i)+'.fits')
+
+"""
+#input and output directories, B-filter;
+input_dir_B = dir + '/Data_r'
+output_dir_B = dir + '/mosaic_B'
+montage.mosaic(input_dir_B, output_dir_B, background_match=True, combine='median')
+
+#R-filter
+input_dir_R = dir + '/Data_r'
+output_dir_R = dir + '/mosaic_R'
+montage.mosaic(input_dir_R, output_dir_R, background_match=True, combine='median')
+
+#V-filter
+input_dir_V = dir + '/Data_v'
+output_dir_V = dir + '/mosaic_V'
+montage.mosaic(input_dir_V, output_dir_V, background_match=True, combine='median')
+"""
+
+#------------------
+#Determine photometric zeropoint in each filter:
+# stars are
+
+
+#B-filter read in:
+
+ld1 = np.zeros((1024,1024,
+
+
+
+
